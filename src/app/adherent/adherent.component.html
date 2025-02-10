@@ -4,15 +4,13 @@
   <tr>
     <th>Nom d'utilisateur</th>
     <th>Adresse e-mail</th>
-    <th>password</th>
   </tr>
   </thead>
   <tbody>
-    @for (Adherent of adherents; track adherent.id) {
+    @for (adherent of adherents; track adherent.id) {
       <tr>
-        <td>{{adherent.username}}</td>
-        <td>{{adherent.email}}</td>
-        <td>{{adherent.password}}</td>
+        <td>{{adherent.nom}}</td>
+        <td>{{adherent.adresse}}</td>
       </tr>
     }
   </tbody>

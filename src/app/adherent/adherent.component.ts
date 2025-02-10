@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AdherentService} from '../services/adherent.service';
-import {Adherent} from '../model/Adherent.model';
+import {Adherent} from '../model/adherent.model';
 @Component({
   selector: 'app-adherent',
   standalone: true,
