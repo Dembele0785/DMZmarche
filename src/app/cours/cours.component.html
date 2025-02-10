@@ -1,0 +1,17 @@
+<p>Nos cours :</p>
+<table border="1">
+  <thead>
+  <tr>
+    <th>cours</th>
+    <th>Prof</th>
+  </tr>
+  </thead>
+  <tbody>
+    @for (cours of courss; track cours.id) {
+      <tr>
+        <td>{{cours.nom}}</td>
+        <td>{{cours.prof}}</td>
+      </tr>
+    }
+  </tbody>
+</table>
