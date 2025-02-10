@@ -1,0 +1,19 @@
+<p>Adherent :</p>
+<table border="1">
+  <thead>
+  <tr>
+    <th>Nom d'utilisateur</th>
+    <th>Adresse e-mail</th>
+    <th>password</th>
+  </tr>
+  </thead>
+  <tbody>
+    @for (Adherent of adherents; track adherent.id) {
+      <tr>
+        <td>{{adherent.username}}</td>
+        <td>{{adherent.email}}</td>
+        <td>{{adherent.password}}</td>
+      </tr>
+    }
+  </tbody>
+</table>
