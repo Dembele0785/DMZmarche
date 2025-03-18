@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Cours} from '../model/cours.model';
 import {CoursService} from '../services/cours.service';
+import {AuthService} from "../services/auth.service";
 @Component({
   selector: 'app-cours',
   standalone: true,
@@ -11,7 +12,7 @@ import {CoursService} from '../services/cours.service';
 export class CoursComponent implements OnInit {
   courss:Cours[] = []
 
-  constructor(private coursService: CoursService) {
+  constructor(private coursService: CoursService, private auth: AuthService) {
   }
 
   ngOnInit(): void {

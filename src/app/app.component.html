@@ -1,18 +1,28 @@
 <div class="container">
-  <div class="navbar">
-    <ul>
-      <li><a href="/cours">Nos cours</a></li>
-      <li><a href="/apropos">À propos</a></li>
-      <li><a href="/infos">Infos utiles</a></li>
-      <li><a href="/adherent">Adherents</a></li>
-      <li><a href="/login">Se connecter</a></li>
-    </ul>
-  </div>
-  <div class="sidebar">
-    <!-- Optionnel : Vous pouvez garder des liens ou du contenu dans la barre latérale ici si nécessaire -->
-  </div>
-  <router-outlet></router-outlet>
-  <div [hidden]="!authenticated()">
-    <p>Vous êtes connecté.e</p>
-  </div>
+    <div class="navbar">
+        <ul>
+            <li><a href="/cours">Nos cours</a></li>
+            <li><a href="/apropos">À propos</a></li>
+            <li><a href="/infos">Infos utiles</a></li>
+            <li><a href="/adherent">Adherents</a></li>
+
+            <!-- Affiche "Se connecter" si l'utilisateur n'est pas connecté, sinon "Se déconnecter" -->
+            <li *ngIf="!authenticated() ">
+                <a href="/login">Se connecter</a>
+            </li>
+            <li *ngIf="authenticated()">
+                <button mat-stroked-button (click)="logout()">Se déconnecter</button>
+            </li>
+        </ul>
+    </div>
+
+    <div class="sidebar">
+        <!-- Optionnel : Vous pouvez garder des liens ou du contenu dans la barre latérale ici si nécessaire -->
+    </div>
+
+    <router-outlet></router-outlet>
+
+    <div *ngIf="authenticated()">
+        <p>Vous êtes connecté.e</p>
+    </div>
 </div>

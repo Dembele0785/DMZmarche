@@ -1,78 +1,49 @@
-.login-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
-}
-
-.login-form {
-  background: #fff;
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+/* Styles globaux pour centrer le formulaire */
+form {
   width: 100%;
   max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
-.login-title {
-  margin-bottom: 1.5rem;
-  text-align: center;
-  color: #333;
+/* Style pour les champs de formulaire */
+mat-form-field {
+  width: 100%;
 }
 
-.form-group {
-  margin-bottom: 1rem;
-}
-
-label {
-  display: block;
-  margin-bottom: 0.5rem;
+/* Bouton stylisé */
+button {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
   font-weight: bold;
-}
-
-input {
-  width: 100%;
-  padding: 0.75rem;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-
-input:focus {
-  outline: none;
-  border-color: #007bff;
-  box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
-}
-
-.login-button {
-  width: 100%;
-  padding: 0.75rem;
-  background-color: #007bff;
-  color: #fff;
+  background: #0085ea;
+  color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
-  font-size: 1rem;
+  transition: background 0.3s ease-in-out;
 }
 
-.login-button:hover {
-  background-color: #0056b3;
+button:hover {
+  background: #3700b3;
 }
 
-.login-footer {
-  margin-top: 1rem;
-  text-align: center;
-  font-size: 0.9rem;
+/* Désactiver le bouton si le formulaire est invalide */
+button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
 }
 
-.login-footer a {
-  color: #007bff;
-  text-decoration: none;
+/* Ajustement pour les messages d'erreur */
+mat-error {
+  color: #d32f2f;
+  font-size: 14px;
+  margin-top: 5px;
 }
-
-.login-footer a:hover {
-  text-decoration: underline;
-}
-
-

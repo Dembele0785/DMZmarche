@@ -11,6 +11,6 @@ export const routes: Routes = [
   { path: 'infos', component: InfosComponent },
   { path: 'login', component: LoginComponent },
   { path: 'adherent', component: AdherentComponent},
-  { path: '', redirectTo: 'user', pathMatch: 'full' }, // Redirection par défaut vers la page de login
+  //{ path: '', redirectTo: 'user', pathMatch: 'full' }, // Redirection par défaut vers la page de login
 
 ];
