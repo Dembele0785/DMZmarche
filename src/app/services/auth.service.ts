@@ -13,10 +13,23 @@ export class AuthService {
     'Content-Type': 'application/json'
   });
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router) {
+    this.restoreSession(); // 🔄 Restaurer la session après rechargement
+  }
 
   isAuthenticated(): boolean {
     return localStorage.getItem('authenticated') === 'true';
+  }
+
+  private restoreSession() {
+    const authData = localStorage.getItem('authData'); // 🔄 Récupérer les données d'authentification
+    if (authData) {
+      const { username, password } = JSON.parse(authData);
+      this.headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Basic ' + btoa(username + ':' + password) // 🔑 Restaurer les credentials
+      });
+    }
   }
 
   login(username: string | null | undefined, password: string | null | undefined) {
@@ -27,13 +40,15 @@ export class AuthService {
     this.http.get(`${this.baseUrl}/cours`, {headers: this.headers}).subscribe({
       next: (response) => {
         localStorage.setItem('authenticated', 'true'); // ✅ Enregistrer l'état de connexion
+        localStorage.setItem('authData', JSON.stringify({ username, password })); // ✅ Sauvegarde des credentials
         this.router.navigate(['/adherent']);
       },
       error: (err) => {
         localStorage.removeItem('authenticated'); // ✅ Supprimer en cas d'erreur
         this.headers = new HttpHeaders({
-          'Content-Type': 'application/json'
-        });
+          'Content-Type': 'application/json'});
+        localStorage.removeItem('authData'); // ❌ Supprimer les credentials en cas d'échec
+
       }
     });
   }
@@ -41,6 +56,7 @@ export class AuthService {
   logout() {
     this.authenticated = false;
     localStorage.removeItem('authenticated'); // ✅ Supprimer l'authentification
+    localStorage.removeItem('authData');
     this.router.navigate(['/login']);
   }
 }
