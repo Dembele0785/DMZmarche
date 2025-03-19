@@ -4,6 +4,7 @@ import { CoursComponent } from './cours/cours.component';
 import { InfosComponent } from './infos/infos.component';
 import { LoginComponent } from './login/login.component';
 import {AdherentComponent} from './adherent/adherent.component';
+import {ProfileComponent} from './profile/profile.component';
 
 export const routes: Routes = [
   { path: 'cours', component: CoursComponent },
@@ -11,6 +12,7 @@ export const routes: Routes = [
   { path: 'infos', component: InfosComponent },
   { path: 'login', component: LoginComponent },
   { path: 'adherent', component: AdherentComponent},
-  //{ path: '', redirectTo: 'user', pathMatch: 'full' }, // Redirection par défaut vers la page de login
+  { path: 'profile', component: ProfileComponent },
+
 
 ];

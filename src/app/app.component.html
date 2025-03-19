@@ -6,6 +6,10 @@
             <li><a href="/infos">Infos utiles</a></li>
           <!-- Afficher le bouton Adhérents uniquement si l'utilisateur est authentifié -->
           <li *ngIf="authenticated()">
+            <a href="/profile">Mon Profil</a>
+          </li>
+
+          <li *ngIf="authenticated()">
             <a href="/adherent">Adhérents</a>
           </li>
             <!-- Affiche "Se connecter" si l'utilisateur n'est pas connecté, sinon "Se déconnecter" -->
