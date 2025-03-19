@@ -18,7 +18,7 @@ mat-form-field {
 }
 
 /* Bouton stylisé */
-button {
+button, .logout-button {
   width: 100%;
   padding: 10px;
   font-size: 16px;
@@ -31,7 +31,7 @@ button {
   transition: background 0.3s ease-in-out;
 }
 
-button:hover {
+button:hover, .logout-button:hover {
   background: #3700b3;
 }
 

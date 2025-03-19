@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import {ActivatedRoute, Router, RouterOutlet} from '@angular/router';
-
 import {AuthService} from './services/auth.service';
 import {HttpClient} from '@angular/common/http';
 import {CommonModule} from '@angular/common';
@@ -17,17 +16,20 @@ export class AppComponent {
   title = 'DMZ';
 
   constructor(
-    protected auth: AuthService,
+    private authService: AuthService,
     private http: HttpClient,
     private router: Router,
     private route: ActivatedRoute
   ) {}
 
 
-  authenticated() {return this.auth.authenticated; }
+  authenticated() {
+    return this.authService.isAuthenticated();
+  }
 
-  logout(){this.auth.logout();}
-  /*
+  logout(): void {
+    this.authService.logout();
+  }  /*
     protected readonly AuthService = AuthService  /*
     // Méthode pour savoir si on est sur la page de login
     isLoginPage(): boolean {

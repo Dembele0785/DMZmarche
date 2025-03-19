@@ -10,9 +10,9 @@
             <li *ngIf="!authenticated() ">
                 <a href="/login">Se connecter</a>
             </li>
-            <li *ngIf="authenticated()">
-                <button mat-stroked-button (click)="logout()">Se déconnecter</button>
-            </li>
+          <li *ngIf="authenticated()">
+            <button class="logout-button" (click)="logout()">Se déconnecter</button>
+          </li>
         </ul>
     </div>
 
@@ -20,9 +20,9 @@
         <!-- Optionnel : Vous pouvez garder des liens ou du contenu dans la barre latérale ici si nécessaire -->
     </div>
 
-    <router-outlet></router-outlet>
+  <div *ngIf="authenticated()">
+    <p>Vous êtes connecté.e</p>
+  </div>
 
-    <div *ngIf="authenticated()">
-        <p>Vous êtes connecté.e</p>
-    </div>
+    <router-outlet></router-outlet>
 </div>

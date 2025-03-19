@@ -13,7 +13,10 @@ export class AuthService {
     'Content-Type': 'application/json'
   });
 
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(private http: HttpClient, private router: Router) {}
+
+  isAuthenticated(): boolean {
+    return localStorage.getItem('authenticated') === 'true';
   }
 
   login(username: string | null | undefined, password: string | null | undefined) {
@@ -23,24 +26,21 @@ export class AuthService {
     });
     this.http.get(`${this.baseUrl}/cours`, {headers: this.headers}).subscribe({
       next: (response) => {
-        this.authenticated = true;
-        this.router.navigate(['/']);
+        localStorage.setItem('authenticated', 'true'); // ✅ Enregistrer l'état de connexion
+        this.router.navigate(['/adherent']);
       },
       error: (err) => {
-        this.authenticated = false;
+        localStorage.removeItem('authenticated'); // ✅ Supprimer en cas d'erreur
         this.headers = new HttpHeaders({
           'Content-Type': 'application/json'
         });
       }
     });
-    return this.authenticated;
   }
 
   logout() {
     this.authenticated = false;
-    this.headers = new HttpHeaders({
-      'Content-Type': 'application/json'
-    });
+    localStorage.removeItem('authenticated'); // ✅ Supprimer l'authentification
     this.router.navigate(['/login']);
   }
 }
