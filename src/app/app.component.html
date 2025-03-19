@@ -4,8 +4,10 @@
             <li><a href="/cours">Nos cours</a></li>
             <li><a href="/apropos">À propos</a></li>
             <li><a href="/infos">Infos utiles</a></li>
-            <li><a href="/adherent">Adherents</a></li>
-
+          <!-- Afficher le bouton Adhérents uniquement si l'utilisateur est authentifié -->
+          <li *ngIf="authenticated()">
+            <a href="/adherent">Adhérents</a>
+          </li>
             <!-- Affiche "Se connecter" si l'utilisateur n'est pas connecté, sinon "Se déconnecter" -->
             <li *ngIf="!authenticated() ">
                 <a href="/login">Se connecter</a>

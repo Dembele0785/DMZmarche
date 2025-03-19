@@ -3,12 +3,11 @@ import {ActivatedRoute, Router, RouterOutlet} from '@angular/router';
 import {AuthService} from './services/auth.service';
 import {HttpClient} from '@angular/common/http';
 import {CommonModule} from '@angular/common';
-import {MatButton} from '@angular/material/button';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule, MatButton],
+  imports: [RouterOutlet, CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
