@@ -41,12 +41,14 @@ export class AuthService {
       next: (response) => {
         localStorage.setItem('authenticated', 'true'); // ✅ Enregistrer l'état de connexion
         localStorage.setItem('authData', JSON.stringify({ username, password })); // ✅ Sauvegarde des credentials
+        console.log("🔑 Utilisateur authentifié avec succès !");
         this.router.navigate(['/adherent']);
       },
       error: (err) => {
         localStorage.removeItem('authenticated'); // ✅ Supprimer en cas d'erreur
         this.headers = new HttpHeaders({
           'Content-Type': 'application/json'});
+        console.error("❌ Échec de l'authentification !");
         localStorage.removeItem('authData'); // ❌ Supprimer les credentials en cas d'échec
 
       }

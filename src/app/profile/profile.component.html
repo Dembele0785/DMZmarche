@@ -1,4 +1,18 @@
-<div class="profile-container">
-  <h2>Mon Profil</h2>
-  <p>Bienvenue dans votre espace personnel.</p>
-</div>
+<p>Profile :</p>
+<table border="1" *ngIf="user">
+  <thead>
+  <tr>
+    <th>Nom</th>
+    <th>Prénom</th>
+    <th>Rôle</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>{{ user.nom }}</td>
+    <td>{{ user.prenom }}</td>
+    <td>{{ user.role }}</td>
+  </tr>
+  </tbody>
+</table>
+<p *ngIf="!user">Aucun utilisateur connecté.</p>
