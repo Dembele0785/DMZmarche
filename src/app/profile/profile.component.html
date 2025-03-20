@@ -1,16 +1,26 @@
 <div class="profile-container" *ngIf="user">
   <div class="profile-header">
     <img src="assets/profile.png" alt="Image de Profil" class="profile-image" />
-
     <div class="profile-details">
-      <h2>{{ user.prenom }} {{ user.nom }}</h2>
-      <p><strong>Rôle :</strong> {{ user.role }}</p>
+      <h2 *ngIf="!isEditing">{{ user.prenom }} {{ user.nom }}</h2>
+      <p *ngIf="!isEditing"><strong>Rôle :</strong> {{ user.role }}</p>
+      <p *ngIf="!isEditing"><strong>Email :</strong> {{ user.email }}</p>
+
+
+      <!-- Formulaire en mode édition -->
+      <div *ngIf="isEditing">
+        <input type="text" [(ngModel)]="editedUser.prenom" placeholder="Prénom" />
+        <input type="text" [(ngModel)]="editedUser.nom" placeholder="Nom" />
+        <input type="text" [(ngModel)]="editedUser.role" placeholder="Rôle" />
+        <input type="text" [(ngModel)]="editedUser.email" placeholder="Rôle" />
+      </div>
     </div>
   </div>
+
   <div class="profile-actions">
-    <button class="edit-button">Modifier le profil</button>
-    <button class="logout-button" (click)="logout()">Se déconnecter</button>
+    <button class="edit-button" (click)="toggleEdit()" *ngIf="!isEditing">Modifier le profil</button>
+    <button class="save-button" (click)="saveProfile()" *ngIf="isEditing">Enregistrer</button>
+    <button class="cancel-button" (click)="toggleEdit()" *ngIf="isEditing">Annuler</button>
+    <button class="logout-button" (click)="logout()">Déconnexion</button> <!-- Bouton de déconnexion ajouté -->
   </div>
 </div>
-
-<p *ngIf="!user">Aucun utilisateur connecté.</p>

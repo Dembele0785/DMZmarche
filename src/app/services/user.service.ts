@@ -3,7 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
 import {AuthService} from './auth.service';
 import {User} from '../model/user.model';
-import {Adherent} from '../model/adherent.model';
+import { SupabaseClient, createClient } from '@supabase/supabase-js';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +11,18 @@ import {Adherent} from '../model/adherent.model';
 export class UserService {
   private apiUrl = 'http://localhost:8080';
 
+  private supabase: SupabaseClient;
+
   constructor(private http: HttpClient,private auth: AuthService) {
+    this.supabase = createClient(
+      'https://nexpegskbrjolsvhrppo.supabase.co',
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5leHBlZ3NrYnJqb2xzdmhycHBvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mjg5OTUyNDksImV4cCI6MjA0NDU3MTI0OX0.-tb5jEjEGoSIgccxVcAZ3j__Cv6mUe8AJvru-Ud9S9w');
   }
+
+  updateUser(id: string, updatedData: any): Observable<User> {
+    return this.http.put<User>(`${this.apiUrl}/user/${id}`, updatedData, { headers: this.auth.headers });
+  }
+
 
   getUser(): Observable<User[]> {
     console.log(this.auth.headers)
