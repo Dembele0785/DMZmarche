@@ -25,10 +25,12 @@
     <div class="sidebar">
         <!-- Optionnel : Vous pouvez garder des liens ou du contenu dans la barre latérale ici si nécessaire -->
     </div>
-
-  <div *ngIf="authenticated()">
-    <p>Vous êtes connecté.e</p>
-  </div>
-
     <router-outlet></router-outlet>
 </div>
+
+<footer class="footer">
+  <div class="footer-content">
+    <p>&copy; 2025 93 MOOVE. Tous droits réservés.</p>
+    <p><a href="/contact">Contactez-nous</a> | <a href="/privacy">Politique de confidentialité</a></p>
+  </div>
+</footer>

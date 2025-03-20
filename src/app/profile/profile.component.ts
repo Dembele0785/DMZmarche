@@ -15,7 +15,7 @@ import {CommonModule} from '@angular/common';
 export class ProfileComponent implements OnInit {  // Update the class name
   user: User | null = null;  // Stocke un seul utilisateur
 
-  constructor(private userService: UserService, private auth: AuthService) {
+  constructor(private userService: UserService, private auth: AuthService, ) {
   }
 
   authenticated() { return this.auth.authenticated; }
@@ -24,5 +24,8 @@ export class ProfileComponent implements OnInit {  // Update the class name
     this.userService.getCurrentUser().subscribe((data: User) => {
       this.user = data;
     });
+  }
+  logout(): void {
+    this.auth.logout();
   }
 }

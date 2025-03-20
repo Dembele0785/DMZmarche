@@ -1,21 +1,22 @@
 /* Container principal */
 .container {
   display: flex;
-  flex-direction: column; /* Change la direction pour une mise en page verticale */
-  height: 100vh;
+  flex-direction: column; /* Mise en page verticale */
+  height: 100vh; /* Hauteur totale de la fenêtre */
+  margin: 0;
 }
 
 /* Barre de navigation en haut */
 .navbar {
   width: 100%;
-  background-color: #f4f4f4;
+  background-color: #eae9e9;
   padding: 10px 0; /* Espacement en haut et en bas */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Légère ombre sous la barre */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ombre sous la barre */
 }
 
 .navbar ul {
-  display: flex; /* Utilisation de flexbox pour aligner les éléments horizontalement */
-  justify-content: center; /* Centre les éléments horizontalement */
+  display: flex; /* Alignement horizontal */
+  justify-content: center; /* Centrage horizontal */
   list-style: none;
   padding: 0;
   margin: 0;
@@ -35,22 +36,20 @@
   color: #007BFF;
 }
 
-/* Barre latérale */
-.sidebar {
-  width: 200px;
-  background-color: #f4f4f4;
-  padding: 20px;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-  display: none; /* Si vous ne voulez pas afficher la barre latérale, vous pouvez la masquer */
-}
-
 /* Contenu principal */
 .main-content {
-  flex-grow: 1;
+  flex-grow: 1; /* Laisse cet espace occuper tout l'espace restant */
   padding: 40px;
   background-color: #fff;
+  overflow: auto; /* Permet de défiler si nécessaire */
 }
 
-.main-content h1 {
-  margin-top: 0;
+/* Pied de page */
+.footer {
+  background-color: #eae9e9;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  width: 100%;
+  margin-top: 10px; /* Ajoute un petit espacement avant le pied de page */
 }
