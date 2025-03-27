@@ -9,7 +9,7 @@
             <a href="/profile">Mon Profil</a>
           </li>
 
-          <li *ngIf="authenticated()">
+          <li *ngIf="authenticated() && isAdmin()">
             <a href="/adherent">Adhérents</a>
           </li>
             <!-- Affiche "Se connecter" si l'utilisateur n'est pas connecté, sinon "Se déconnecter" -->
@@ -34,3 +34,4 @@
     <p><a href="/contact">Contactez-nous</a> | <a href="/privacy">Politique de confidentialité</a></p>
   </div>
 </footer>
+

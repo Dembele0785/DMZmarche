@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+import {catchError, Observable, throwError} from 'rxjs';
 import {Cours} from '../model/cours.model';
 import {AuthService} from './auth.service';
 
@@ -14,7 +14,18 @@ export class CoursService {
   }
 
   getCourss(): Observable<Cours[]> {
-    let courss = this.http.get<Cours[]>(this.apiUrl,{headers:this.auth.headers});
-    return courss;
+    if (!this.auth.isAuthenticated()) {
+      console.error('❌ Utilisateur non authentifié');
+      return throwError(() => new Error('Utilisateur non authentifié'));
+    }
+
+    return this.http.get<Cours[]>(this.apiUrl, { headers: this.auth.headers }).pipe(
+      catchError(this.handleError) // Gère les erreurs HTTP
+    );
+  }
+
+  private handleError(error: HttpErrorResponse) {
+    console.error('❌ Erreur lors de la récupération des cours :', error);
+    return throwError(() => new Error('Erreur de chargement des cours.'));
   }
 }

@@ -28,7 +28,14 @@ export class AppComponent {
 
   logout(): void {
     this.authService.logout();
-  }  /*
+  }
+
+  isAdmin(): boolean {
+    return this.authService.getRole() === 'ADMIN'; // ⚠️ Remplace 'ADMIN' par la valeur réelle de ton rôle admin dans la BDD
+  }
+
+
+  /*
     protected readonly AuthService = AuthService  /*
     // Méthode pour savoir si on est sur la page de login
     isLoginPage(): boolean {

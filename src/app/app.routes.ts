@@ -5,13 +5,14 @@ import { InfosComponent } from './infos/infos.component';
 import { LoginComponent } from './login/login.component';
 import {AdherentComponent} from './adherent/adherent.component';
 import {ProfileComponent} from './profile/profile.component';
+import {AdminGuard} from './guards/admin.guard';
 
 export const routes: Routes = [
   { path: 'cours', component: CoursComponent },
   { path: 'apropos', component: AproposComponent },
   { path: 'infos', component: InfosComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'adherent', component: AdherentComponent},
+  { path: 'adherent', component: AdherentComponent, canActivate: [AdminGuard] },
   { path: 'profile', component: ProfileComponent },
 
 

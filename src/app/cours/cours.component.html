@@ -1,17 +1,7 @@
-<p>Nos cours :</p>
-<table border="1">
-  <thead>
-  <tr>
-    <th>cours</th>
-    <th>Prof</th>
-  </tr>
-  </thead>
-  <tbody>
-    @for (cours of courss; track cours.id) {
-      <tr>
-        <td>{{cours.nom}}</td>
-        <td>{{cours.prof}}</td>
-      </tr>
-    }
-  </tbody>
-</table>
+<div class="cours-container">
+  <div class="cours-card" *ngFor="let cours of courss; trackBy: trackById">
+    <img [src]="cours.image" alt="{{ cours.nom }}" class="cours-image">
+    <h3>{{ cours.nom }}</h3>
+    <p><strong>Prof :</strong> {{ cours.prof }}</p>
+  </div>
+</div>
