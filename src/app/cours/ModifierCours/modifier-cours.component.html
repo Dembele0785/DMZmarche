@@ -1,0 +1,14 @@
+<div class="modifier-cours-container">
+  <h2>Modifier le cours</h2>
+  <label>Nom du cours :</label>
+  <input type="text" [(ngModel)]="cours.nom">
+
+  <label>Professeur :</label>
+  <input type="text" [(ngModel)]="cours.prof">
+
+  <label>Salle :</label>
+  <input type="text" [(ngModel)]="cours.salle">
+
+  <button (click)="enregistrerModification()">Enregistrer</button>
+  <button (click)="annuler()">Annuler</button>
+</div>

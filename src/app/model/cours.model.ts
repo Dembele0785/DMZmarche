@@ -3,4 +3,5 @@ export interface Cours{
   nom: string;
   prof: string;
   image : string
+  salle: string;
 }

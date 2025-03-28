@@ -1,0 +1,16 @@
+<div class="ajouter-cours-container">
+  <h2>Ajouter un cours</h2>
+
+  <label>Nom du cours :</label>
+  <input type="text" [(ngModel)]="nouveauCours.nom">
+
+  <label>Professeur :</label>
+  <input type="text" [(ngModel)]="nouveauCours.prof">
+
+  <label>Salle :</label>
+  <input type="text" [(ngModel)]="nouveauCours.salle">
+
+  <button (click)="ajouterCours()">Ajouter</button>
+  <button (click)="annuler()">Annuler</button>
+
+</div>

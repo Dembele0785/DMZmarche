@@ -24,6 +24,32 @@ export class CoursService {
     );
   }
 
+
+  updateCours(id: number, cours: Cours): Observable<Cours> {
+    return this.http.put<Cours>(`${this.apiUrl}/${id}`, cours, { headers: this.auth.headers }).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  supprimerCours(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`, { headers: this.auth.headers }).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  getCoursById(id: number): Observable<Cours> {
+    return this.http.get<Cours>(`${this.apiUrl}/${id}`, { headers: this.auth.headers }).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  ajouterCours(cours: Cours): Observable<Cours> {
+    return this.http.post<Cours>(this.apiUrl, cours, { headers: this.auth.headers }).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+
   private handleError(error: HttpErrorResponse) {
     console.error('❌ Erreur lors de la récupération des cours :', error);
     return throwError(() => new Error('Erreur de chargement des cours.'));

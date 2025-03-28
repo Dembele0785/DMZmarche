@@ -1,7 +1,13 @@
 <div class="cours-container">
+  <button [routerLink]="['/ajouter-cours']">➕ Ajouter un cours</button>
+
   <div class="cours-card" *ngFor="let cours of courss; trackBy: trackById">
     <img [src]="cours.image" alt="{{ cours.nom }}" class="cours-image">
     <h3>{{ cours.nom }}</h3>
     <p><strong>Prof :</strong> {{ cours.prof }}</p>
+    <p><strong>Salle:</strong>{{ cours.salle}}</p>
+
+    <button [routerLink]="['/modifier-cours', cours.id]">Modifier</button>
+    <button (click)="supprimerCours(cours.id)">Supprimer</button>
   </div>
 </div>
