@@ -3,12 +3,14 @@ import { Router } from '@angular/router';
 import { Cours } from '../../model/cours.model';
 import { CoursService } from '../../services/cours.service';
 import {FormsModule} from '@angular/forms';
+import {NgIf} from '@angular/common';
 
 @Component({
   selector: 'app-ajouter-cours',
   templateUrl: './ajouter-cours.component.html',
   imports: [
-    FormsModule
+    FormsModule,
+    NgIf
   ],
   styleUrl: './ajouter-cours.component.css'
 })

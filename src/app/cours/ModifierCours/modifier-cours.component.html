@@ -1,5 +1,6 @@
 <div class="modifier-cours-container">
   <h2>Modifier le cours</h2>
+
   <label>Nom du cours :</label>
   <input type="text" [(ngModel)]="cours.nom">
 
@@ -8,6 +9,18 @@
 
   <label>Salle :</label>
   <input type="text" [(ngModel)]="cours.salle">
+
+  <!-- Menu déroulant pour choisir une image -->
+  <label>Image du cours :</label>
+  <select [(ngModel)]="cours.image">
+    <option *ngFor="let img of images" [value]="img.path">{{ img.name }}</option>
+  </select>
+
+  <!-- Affichage de l'aperçu de l'image sélectionnée -->
+  <div *ngIf="cours.image">
+    <p>Aperçu image :</p>
+    <img [src]="cours.image" alt="Aperçu de l'image" width="100">
+  </div>
 
   <button (click)="enregistrerModification()">Enregistrer</button>
   <button (click)="annuler()">Annuler</button>

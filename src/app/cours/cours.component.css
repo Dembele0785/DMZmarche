@@ -5,6 +5,33 @@
   justify-content: center;
 }
 
+.cours-container {
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  max-width: 1200px;
+  margin: 30px auto;
+  font-family: 'Arial', sans-serif;
+}
+
+
+
+.cours-card {
+  background: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 250px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+
+
+button + button:hover {
+  background-color: #e53935;
+}
+
 .cours-card {
   background: #f8f9fa;
   border-radius: 10px;

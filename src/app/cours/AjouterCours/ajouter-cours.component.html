@@ -10,6 +10,21 @@
   <label>Salle :</label>
   <input type="text" [(ngModel)]="nouveauCours.salle">
 
+  <label>Image du cours :</label>
+  <select [(ngModel)]="nouveauCours.image">
+    <option value="assets/foot.png">Football</option>
+    <option value="assets/basket.png">Basketball</option>
+    <option value="assets/tennis.png">Tennis</option>
+    <option value="assets/natation.png">Natation</option>
+    <option value="assets/musique.png">Musique</option>
+    <option value="assets/artplastique.png">Arts Plastiques</option>
+  </select>
+
+  <div *ngIf="nouveauCours.image">
+    <p>Aperçu de l'image :</p>
+    <img [src]="nouveauCours.image" alt="Aperçu de l'image" width="100">
+  </div>
+
   <button (click)="ajouterCours()">Ajouter</button>
   <button (click)="annuler()">Annuler</button>
 

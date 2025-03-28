@@ -1,0 +1,123 @@
+/* Conteneur principal */
+.modifier-cours-container {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+  margin: 30px auto;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Titre */
+h2 {
+  text-align: center;
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Labels */
+label {
+  font-weight: bold;
+  margin-top: 15px;
+  display: block;
+  color: #555;
+}
+
+/* Champs de saisie */
+input[type="text"],
+select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  color: #333;
+  background-color: #fff;
+  transition: border-color 0.3s ease-in-out;
+}
+
+input[type="text"]:focus,
+select:focus {
+  border-color: #4CAF50;
+  outline: none;
+}
+
+/* Aperçu de l'image */
+.image-preview {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+/* Conteneur d'aperçu d'image */
+div > p {
+  color: #555;
+  font-size: 14px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+/* Boutons */
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-right: 10px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+button:active {
+  background-color: #3e8e41;
+}
+
+/* Disposition des boutons */
+button + button {
+  background-color: #f44336;
+}
+
+button + button:hover {
+  background-color: #e53935;
+}
+
+/* Ajout d'espacement et de mise en page */
+div > button {
+  width: 48%;
+}
+
+button + button {
+  width: 48%;
+}
+
+/* Mise en page flexible pour les éléments */
+@media (max-width: 600px) {
+  .modifier-cours-container {
+    padding: 15px;
+  }
+
+  button,
+  select,
+  input[type="text"] {
+    font-size: 14px;
+  }
+
+  .image-preview {
+    width: 80px;
+    height: 80px;
+  }
+}
