@@ -3,6 +3,7 @@ import {UserService} from '../services/user.service';
 import {User} from '../model/user.model';
 import {NgForOf} from '@angular/common';
 import {Observable} from 'rxjs';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-user',
@@ -15,7 +16,7 @@ import {Observable} from 'rxjs';
 export class UserComponent implements OnInit {
   users: User[] = []; // Liste des utilisateurs à afficher
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, protected router: Router) {}
 
   ngOnInit(): void {
     this.loadUsers(); // Charger les utilisateurs au démarrage du composant

@@ -1,44 +1,84 @@
+/* Conteneur du formulaire */
 .form-container {
-  max-width: 400px;
+  width: 100%;
+  max-width: 500px;
   margin: 0 auto;
   padding: 20px;
+  background-color: #f9f9f9;
   border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-h2 {
+/* Style du titre du formulaire */
+.form-container h2 {
   text-align: center;
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
+/* Style des labels */
+.form-container label {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: #333;
 }
 
-label {
+/* Style des champs de saisie */
+.form-container input[type="text"],
+.form-container input[type="email"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.form-container input[type="text"]:focus,
+.form-container input[type="email"]:focus {
+  border-color: #007bff; /* Bordure bleue au focus */
+  outline: none;
+}
+
+/* Style des boutons */
+button {
+  width: 48%;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
   margin-top: 10px;
 }
 
-input {
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-button {
-  margin-top: 15px;
-  padding: 10px;
-  border: none;
-  background-color: #28a745;
+button:first-child {
+  background-color: #28a745; /* Bouton Ajouter */
   color: white;
-  border-radius: 5px;
-  cursor: pointer;
 }
 
-button[disabled] {
-  background-color: gray;
+button:first-child:hover {
+  background-color: #218838; /* Hover Ajouter */
 }
 
-button:nth-child(2) {
-  background-color: red;
+button:last-child {
+  background-color: #dc3545; /* Bouton Annuler */
+  color: white;
+}
+
+button:last-child:hover {
+  background-color: #c82333; /* Hover Annuler */
+}
+
+/* Centrer les boutons */
+button {
+  display: inline-block;
+  margin-right: 4%;
+}
+
+button:last-child {
+  margin-right: 0;
 }

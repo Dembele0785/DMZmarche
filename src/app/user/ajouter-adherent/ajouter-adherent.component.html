@@ -1,14 +1,14 @@
-<div class="ajouter-adherent-container">
+<div class="form-container">
   <h2>Ajouter un Adhérent</h2>
 
   <label>Nom :</label>
-  <input type="text" [(ngModel)]="nouveauAdherent.nom">
+  <input type="text" [(ngModel)]="nouveauAdherent.nom" required>
 
   <label>Prénom :</label>
-  <input type="text" [(ngModel)]="nouveauAdherent.prenom">
+  <input type="text" [(ngModel)]="nouveauAdherent.prenom" required>
 
   <label>Email :</label>
-  <input type="email" [(ngModel)]="nouveauAdherent.email">
+  <input type="email" [(ngModel)]="nouveauAdherent.email" required>
 
   <button (click)="ajouterAdherent()">Ajouter</button>
   <button (click)="annuler()">Annuler</button>

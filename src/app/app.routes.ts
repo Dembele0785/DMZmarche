@@ -9,6 +9,7 @@ import {AdminGuard} from './guards/admin.guard';
 import {ModifierCoursComponent} from './cours/ModifierCours/modifier-cours.component';
 import {AjouterCoursComponent} from './cours/AjouterCours/ajouter-cours.component';
 import {UserComponent} from './user/user.component';
+import {AjouterAdherentComponent} from './user/ajouter-adherent/ajouter-adherent.component';
 
 export const routes: Routes = [
   { path: 'cours', component: CoursComponent },
@@ -20,6 +21,7 @@ export const routes: Routes = [
   { path: 'modifier-cours/:id', component: ModifierCoursComponent },
   {path:  'ajouter-cours', component: AjouterCoursComponent},
   { path: 'users', component: UserComponent }, // Route pour afficher les adhérents
+  { path: 'ajouter-adherent', component: AjouterAdherentComponent }, // Ajouter un adhérent
 
 
 ];

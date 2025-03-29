@@ -51,6 +51,16 @@ export class UserService {
     );
   }
 
+  addUser(user: User): Observable<User> {
+    return this.http.post<User>(`${this.apiUrl}/user`, user, { headers: this.auth.headers }).pipe(
+      catchError(error => {
+        console.error('Erreur lors de l\'ajout de l\'utilisateur', error);
+        throw error;
+      })
+    );
+  }
+
+
 
 
 

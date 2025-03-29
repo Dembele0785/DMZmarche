@@ -101,3 +101,34 @@
   transform: scale(1.05);
   box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
 }
+
+/* Conteneur du bouton Ajouter */
+.add-button-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Style du bouton Ajouter un Adhérent */
+.add-button {
+  background-color: #007bff; /* Couleur bleue */
+  color: white; /* Texte blanc */
+  border: none;
+  padding: 12px 25px; /* Espacement à l'intérieur du bouton */
+  font-size: 18px; /* Taille du texte */
+  border-radius: 8px; /* Coins arrondis */
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s; /* Transition pour l'effet hover */
+}
+
+.add-button:hover {
+  background-color: #0056b3; /* Couleur bleue foncée au survol */
+  transform: scale(1.05); /* Légère agrandissement au survol */
+}
+
+.add-button:focus {
+  outline: none; /* Supprimer le contour du bouton quand il est sélectionné */
+}
+
+.add-button:active {
+  transform: scale(0.98); /* Légère réduction du bouton lorsqu'il est cliqué */
+}

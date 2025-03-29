@@ -1,5 +1,10 @@
 <h2 class="title">Liste des Adhérents</h2>
 
+<!-- Bouton Ajouter un Adhérent -->
+<div class="add-button-container">
+  <button (click)="router.navigate(['/ajouter-adherent'])">Ajouter un Adhérent</button>
+</div>
+
 <!-- Liste des utilisateurs -->
 <div class="users-container">
   <div class="user-card" *ngFor="let user of users">
