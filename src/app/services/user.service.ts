@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Observable, throwError} from 'rxjs';
+import {catchError, map, Observable, throwError} from 'rxjs';
 import {AuthService} from './auth.service';
 import {User} from '../model/user.model';
 import { SupabaseClient, createClient } from '@supabase/supabase-js';
@@ -44,6 +44,13 @@ export class UserService {
 
     return this.http.get<User>(`${this.apiUrl}/me`, { headers });
   }
+
+  getUsers(): Observable<User[]> {
+    return this.http.get<User[]>(`${this.apiUrl}/user`, { headers: this.auth.headers }).pipe(
+      map(users => users.filter(user => user.role === 'ADHERENT'))
+    );
+  }
+
 
 
 

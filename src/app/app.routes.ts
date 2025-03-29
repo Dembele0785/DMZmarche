@@ -8,6 +8,7 @@ import {ProfileComponent} from './profile/profile.component';
 import {AdminGuard} from './guards/admin.guard';
 import {ModifierCoursComponent} from './cours/ModifierCours/modifier-cours.component';
 import {AjouterCoursComponent} from './cours/AjouterCours/ajouter-cours.component';
+import {UserComponent} from './user/user.component';
 
 export const routes: Routes = [
   { path: 'cours', component: CoursComponent },
@@ -17,7 +18,8 @@ export const routes: Routes = [
   { path: 'adherent', component: AdherentComponent, canActivate: [AdminGuard] },
   { path: 'profile', component: ProfileComponent },
   { path: 'modifier-cours/:id', component: ModifierCoursComponent },
-  {path:  'ajouter-cours', component: AjouterCoursComponent}
+  {path:  'ajouter-cours', component: AjouterCoursComponent},
+  { path: 'users', component: UserComponent }, // Route pour afficher les adhérents
 
 
 ];

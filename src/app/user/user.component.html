@@ -1,0 +1,10 @@
+<h2 class="title">Liste des Adhérents</h2>
+
+<!-- Liste des utilisateurs -->
+<div class="users-container">
+  <div class="user-card" *ngFor="let user of users">
+    <h3>{{ user.nom }} {{ user.prenom }}</h3>
+    <p><strong>Email :</strong> {{ user.email }}</p>
+    <p><strong>Rôle :</strong> {{ user.role }}</p>
+  </div>
+</div>
