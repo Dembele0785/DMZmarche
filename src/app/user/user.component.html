@@ -2,7 +2,7 @@
 
 <!-- Bouton Ajouter un Adhérent -->
 <div class="add-button-container">
-  <button (click)="router.navigate(['/ajouter-adherent'])">Ajouter un Adhérent</button>
+  <button class="add-button" (click)="router.navigate(['/ajouter-adherent'])">➕ Ajouter un Adhérent</button>
 </div>
 
 <!-- Liste des utilisateurs -->
@@ -11,5 +11,11 @@
     <h3>{{ user.nom }} {{ user.prenom }}</h3>
     <p><strong>Email :</strong> {{ user.email }}</p>
     <p><strong>Rôle :</strong> {{ user.role }}</p>
+
+    <!-- Boutons Modifier et Supprimer -->
+    <div class="button-group">
+      <button class="edit-button" [routerLink]="['/modifier-user', user.id]">Modifier</button>
+      <button class="delete-button" (click)="supprimerAdherent(user.id)">🗑️ Supprimer</button>
+    </div>
   </div>
 </div>

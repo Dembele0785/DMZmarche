@@ -1,0 +1,23 @@
+<div class="modifier-cours-container">
+  <h2>Modifier le cours</h2>
+
+  <label>nom :</label>
+  <input type="text" [(ngModel)]="user.nom">
+
+  <label>prenom :</label>
+  <input type="text" [(ngModel)]="user.prenom">
+
+  <label>username :</label>
+  <input type="text" [(ngModel)]="user.username">
+
+  <label>email :</label>
+  <input type="text" [(ngModel)]="user.email">
+
+  <label>Password :</label>
+  <input type="text" [(ngModel)]="user.password">
+
+
+  <button (click)="enregistrerModification()">Enregistrer</button>
+  <button (click)="annuler()">Annuler</button>
+</div>
+

@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import {catchError, map, Observable, throwError} from 'rxjs';
 import {AuthService} from './auth.service';
 import {User} from '../model/user.model';
 import { SupabaseClient, createClient } from '@supabase/supabase-js';
+import {Cours} from '../model/cours.model';
 
 @Injectable({
   providedIn: 'root'
@@ -60,9 +61,28 @@ export class UserService {
     );
   }
 
+  supprimerAdherent(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/user/${id}`, { headers: this.auth.headers }).pipe(
+      catchError(this.handleError)
+    );
+  }
 
+  getUserById(id: number): Observable<User> {
+    return this.http.get<User>(`${this.apiUrl}/user/${id}`, { headers: this.auth.headers }).pipe(
+      catchError(this.handleError)
+    );
+  }
 
+  updateAdherent(id: number, user: User): Observable<User> {
+    return this.http.put<User>(`${this.apiUrl}/user/${id}`, user, { headers: this.auth.headers }).pipe(
+      catchError(this.handleError)
+    );
+  }
 
+  private handleError(error: HttpErrorResponse) {
+    console.error('❌ Erreur lors de la récupération des cours :', error);
+    return throwError(() => new Error('Erreur de chargement des cours.'));
+  }
 
 
 }

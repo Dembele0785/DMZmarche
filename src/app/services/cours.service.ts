@@ -54,4 +54,11 @@ export class CoursService {
     console.error('❌ Erreur lors de la récupération des cours :', error);
     return throwError(() => new Error('Erreur de chargement des cours.'));
   }
+
+  inscriptionCours(id: number): Observable<any> {
+    return this.http.post(`${this.apiUrl}/cours/${id}/inscription`, {}, { headers: this.auth.headers }).pipe(
+      catchError(this.handleError)
+    );
+  }
+
 }
