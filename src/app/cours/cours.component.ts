@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Cours } from '../model/cours.model';
 import { CoursService } from '../services/cours.service';
 import { AuthService } from "../services/auth.service";
-import { NgForOf } from '@angular/common';
+import {NgForOf, NgIf} from '@angular/common';
 import {Router, RouterLink} from '@angular/router';
 
 @Component({
@@ -10,7 +10,8 @@ import {Router, RouterLink} from '@angular/router';
   standalone: true,
   imports: [
     NgForOf,
-    RouterLink
+    RouterLink,
+    NgIf
   ],
   templateUrl: './cours.component.html',
   styleUrl: './cours.component.css'
@@ -58,5 +59,17 @@ export class CoursComponent implements OnInit {
         }
       });
     }
+  }
+
+  inscrireCours(id: number): void {
+    this.coursService.inscriptionCours(id).subscribe({
+      next: () => alert('✅ Inscription réussie !'),
+      error: () => alert('❌ Erreur lors de l\'inscription.')
+    });
+  }
+
+
+  isAdmin(): boolean {
+    return this.auth.getRole() === 'ADMIN'; // ⚠️ Remplace 'ADMIN' par la valeur réelle de ton rôle admin dans la BDD
   }
 }

@@ -16,6 +16,7 @@ import {FormsModule} from '@angular/forms';
 export class ProfileComponent implements OnInit {  // Update the class name
   user: User | null = null;  // Stocke un seul utilisateur
   isEditing = false;
+
   editedUser: Partial<User> = {};  // Contient les données modifiées
 
 
@@ -59,5 +60,9 @@ export class ProfileComponent implements OnInit {  // Update the class name
         alert("Échec de la mise à jour !");
       }
     });
+  }
+
+  isAdmin(): boolean {
+    return this.auth.getRole() === 'ADMIN'; // ⚠️ Remplace 'ADMIN' par la valeur réelle de ton rôle admin dans la BDD
   }
 }

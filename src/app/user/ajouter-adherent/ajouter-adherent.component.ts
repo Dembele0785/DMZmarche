@@ -14,7 +14,7 @@ import {FormsModule} from '@angular/forms';
 })
 export class AjouterAdherentComponent {
   // Initialisation de l'objet pour le nouvel adhérent
-  nouveauAdherent: User = { id: 0, nom: '', prenom: '', email: '', role: 'ADHERENT' };
+  nouveauAdherent: User = { id: 0,nom :'', prenom:'', role: 'ADHERENT', email: '', username: '', password: '' };
 
   constructor(
     private userService: UserService,

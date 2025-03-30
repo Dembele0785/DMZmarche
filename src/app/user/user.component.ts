@@ -3,12 +3,13 @@ import {UserService} from '../services/user.service';
 import {User} from '../model/user.model';
 import {NgForOf} from '@angular/common';
 import {Observable} from 'rxjs';
-import {Router} from '@angular/router';
+import {Router, RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-user',
   imports: [
-    NgForOf
+    NgForOf,
+    RouterLink
   ],
   templateUrl: './user.component.html',
   styleUrl: './user.component.css'
@@ -33,4 +34,22 @@ export class UserComponent implements OnInit {
       }
     });
   }
+
+  modifierAdherent(id: number) {
+    this.router.navigate(['/modifier-adherent', id]);
+  }
+
+  supprimerAdherent(id: number) {
+    if (confirm("Voulez-vous vraiment supprimer ce cours ?")) {
+      this.userService.supprimerAdherent(id).subscribe({
+        next: () => {
+          this.users = this.users.filter(c => c.id !== id);
+        },
+        error: (err) => {
+          console.error("❌ Erreur lors de la suppression du cours :", err);
+        }
+      });
+    }
+  }
+
 }
